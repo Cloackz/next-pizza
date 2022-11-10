@@ -1,0 +1,14 @@
+@import '/styles/conf';
+
+.Button {
+  cursor: pointer;
+  border: none;
+  background: $color-orange;
+  padding: 15px 25px;
+  border-radius: 30px;
+  color: $color-white;
+  font-family: $font-base-family;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: calc(20 / 16);
+}

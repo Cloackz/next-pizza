@@ -1,3 +1,5 @@
+@import '/styles/_conf.scss';
+
 .Header {
   display: flex;
   align-items: center;
@@ -26,5 +28,37 @@
     font-size: 16px;
     line-height: 20px;
     color: #7b7b7b;
+  }
+}
+
+.Button {
+  display: flex;
+  align-items: center;
+}
+
+.ButtonPrice {
+  display: block;
+  position: relative;
+  padding-right: 13px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 1px;
+    height: 25px;
+    top: -5px;
+    right: 0;
+    background: rgba(255, 255, 255, 0.25);
+  }
+}
+
+.ButtonMount {
+  display: flex;
+  align-items: center;
+  padding-left: 13px;
+
+  svg {
+    margin-right: 8px;
   }
 }

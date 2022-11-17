@@ -1,0 +1,23 @@
+@import '/styles/conf';
+
+.List {
+  display: flex;
+}
+
+.Item {
+  cursor: pointer;
+  padding: 15px 20px;
+  border-radius: 30px;
+  background: #f9f9f9;
+  color: $color-black;
+  font-weight: 700;
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
+.ItemActive {
+  background: $color-black;
+  color: $color-white;
+}

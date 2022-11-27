@@ -3,6 +3,7 @@ import Header from '/components/Header/Header'
 import Categories from '/components/Categories/Categories'
 
 import styles from '/styles/Main.module.scss'
+import PizzaBlock from '/components/PizzaBlock/PizzaBlock'
 
 const index = () => {
   return (
@@ -12,6 +13,7 @@ const index = () => {
       </Container>
       <Container>
         <Categories />
+        <PizzaBlock />
       </Container>
     </>
   )

@@ -2,6 +2,7 @@
 
 .List {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .Item {
@@ -11,6 +12,7 @@
   background: #f9f9f9;
   color: $color-black;
   font-weight: 700;
+  margin-bottom: 10px;
 
   &:not(:last-child) {
     margin-right: 10px;

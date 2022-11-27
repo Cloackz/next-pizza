@@ -1,0 +1,15 @@
+@import '/styles/conf';
+
+.List {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  @media (min-width: 580px) {
+    padding: 0 -5px;
+  }
+
+  @media (min-width: 600px) {
+    justify-content: space-between;
+  }
+}

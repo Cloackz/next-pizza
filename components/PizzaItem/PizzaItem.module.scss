@@ -57,10 +57,17 @@
   padding: 5px;
   border-radius: 10px;
   width: 50%;
+  opacity: 0.3;
+  color: $color-black;
 
   &:not(:last-child) {
     margin-right: 5px;
   }
+}
+
+.OptionsItemActive {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
+  opacity: 1;
 }
 
 .Wrapper {
@@ -73,4 +80,49 @@
   font-size: 22px;
   line-height: calc(27 / 22);
   font-weight: 700;
+}
+
+.Button {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: $color-orange 1px solid;
+  color: $color-orange;
+  padding: 14px 18px;
+
+  path {
+    fill: $color-orange;
+  }
+
+  &:hover,
+  &:active {
+    background: $color-orange;
+    color: $color-white;
+    border: transparent 1px solid;
+
+    path {
+      fill: $color-white;
+    }
+
+    .ButtonCount {
+      background: $color-white;
+      color: $color-orange;
+    }
+  }
+}
+
+.ButtonText {
+  margin: 0 7px;
+}
+
+.ButtonCount {
+  width: 22px;
+  background: $color-orange;
+  color: $color-white;
+  border-radius: 50%;
+  display: none;
+}
+
+.ButtonCountActive {
+  display: block;
 }

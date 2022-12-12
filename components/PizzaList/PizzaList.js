@@ -13,6 +13,7 @@ const PizzaList = () => {
           img={`/img/pizzaItem/${item.src}.png`}
           width={260}
           height={260}
+          price={item.price}
           key={index}
         />
       ))}

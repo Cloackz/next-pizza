@@ -7,7 +7,7 @@ import classNames from 'classnames'
 
 const PizzaItem = ({ title, img, width, height, price }) => {
   const dough = ['тонкое', 'традиционное']
-  const sizes = ['26 см.', '30 см.', '40 см.']
+  const sizes = ['26', '30', '40']
 
   const [optionsSizeActive, setOptionsSizeActive] = useState(0)
   const [optionsDoughActive, setOptionsDoughActive] = useState(0)
@@ -54,7 +54,7 @@ const PizzaItem = ({ title, img, width, height, price }) => {
               key={index}
               onClick={() => setOptionsSizeActive(index)}
             >
-              {item}
+              {`${item} см.`}
             </li>
           ))}
         </ul>

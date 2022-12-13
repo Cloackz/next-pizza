@@ -19,6 +19,12 @@
     margin-right: 10px;
   }
 
+  &:hover,
+  &:focus {
+    background: rgba($color: $color-black, $alpha: 0.8);
+    color: rgba($color: $color-white, $alpha: 0.8);
+  }
+
   @media (min-width: $media500) {
     padding: 15px 20px;
   }

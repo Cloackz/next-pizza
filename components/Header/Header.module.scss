@@ -8,11 +8,21 @@
 
 .Logo {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
+
+  @media (min-width: $media500) {
+    flex-direction: row;
+    align-items: center;
+  }
 
   img {
     display: block;
-    margin-right: 15px;
+    margin-bottom: 5px;
+
+    @media (min-width: 500px) {
+      margin: 0 15px 0;
+    }
   }
 }
 
@@ -25,9 +35,18 @@
   }
 
   p {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 20px;
     color: #7b7b7b;
+    max-width: 150px;
+
+    @media (min-width: $media500) {
+      font-size: 16px;
+    }
+
+    @media (min-width: $media768) {
+      max-width: 100%;
+    }
   }
 }
 
@@ -39,7 +58,11 @@
 .ButtonPrice {
   display: block;
   position: relative;
-  padding-right: 13px;
+  padding-right: 7px;
+
+  @media (min-width: $media500) {
+    padding-right: 14px;
+  }
 
   &::before {
     content: '';
@@ -56,9 +79,15 @@
 .ButtonMount {
   display: flex;
   align-items: center;
-  padding-left: 13px;
+  padding-left: 7px;
+
+  @media (min-width: $media500) {
+    padding-left: 14px;
+  }
 
   svg {
-    margin-right: 8px;
+    width: 14px;
+    height: 14px;
+    margin-right: 6px;
   }
 }

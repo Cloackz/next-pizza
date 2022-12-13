@@ -1,9 +1,3 @@
-// colors
-
-$color-black: #282828;
-$color-white: #fff;
-$color-orange: #fe5f1e;
-
 $font-system-sans-serif-family: system-ui, -apple-system, BlinkMacSystemFont,
   'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif,
   'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
@@ -13,3 +7,23 @@ $font-system-mono-family: SFMono-Regular, Menlo, Monaco, Consolas,
   'Liberation Mono', 'Courier New', monospace;
 
 $font-base-family: 'Proxima Nova', $font-system-sans-serif-family;
+
+// colors
+
+$color-black: #282828;
+$color-white: #fff;
+$color-orange: #fe5f1e;
+
+// media
+
+$media500: 500px;
+$media600: 600px;
+$media768: 768px;
+$media1024: 1024px;
+$media1200: 1200px;
+$media1400: 1400px;
+
+//transition
+
+$transition-time: 0.35s;
+$transition-ease: ease;

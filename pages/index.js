@@ -1,21 +1,14 @@
-import Container from '/components/ui/Container/Container'
-import Header from '/components/Header/Header'
-import Categories from '/components/Categories/Categories'
+import Layout from '/components/Layout/Layout'
 
-import styles from '/styles/Main.module.scss'
+import Categories from '/components/Categories/Categories'
 import PizzaBlock from '/components/PizzaBlock/PizzaBlock'
 
 const index = () => {
   return (
-    <>
-      <Container className={styles.ContainerHeader}>
-        <Header />
-      </Container>
-      <Container>
-        <Categories />
-        <PizzaBlock />
-      </Container>
-    </>
+    <Layout>
+      <Categories />
+      <PizzaBlock />
+    </Layout>
   )
 }
 

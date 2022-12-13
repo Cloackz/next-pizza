@@ -59,6 +59,7 @@
   width: 50%;
   opacity: 0.3;
   color: $color-black;
+  transition: $transition-time $transition-ease;
 
   &:not(:last-child) {
     margin-right: 5px;
@@ -67,6 +68,7 @@
 
 .OptionsItemActive {
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
+  background: $color-white;
   opacity: 1;
 }
 
@@ -88,7 +90,7 @@
   background: transparent;
   border: $color-orange 1px solid;
   color: $color-orange;
-  padding: 14px 18px;
+  padding: 10px 18px;
 
   path {
     fill: $color-orange;
@@ -116,7 +118,7 @@
 }
 
 .ButtonCount {
-  width: 22px;
+  width: 24px;
   background: $color-orange;
   color: $color-white;
   border-radius: 50%;

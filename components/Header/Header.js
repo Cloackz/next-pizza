@@ -2,10 +2,11 @@ import GridBlock from '/components/ui/GridBlock/GridBlock'
 import Button from '/components/ui/Button/Button'
 
 import styles from './Header.module.scss'
+import classNames from 'classnames'
 
-const Header = () => {
+const Header = (className) => {
   return (
-    <GridBlock Tag="header" className={styles.Header}>
+    <GridBlock Tag="header" className={classNames(styles.Header)}>
       <div className={styles.Logo}>
         <img src="/img/logo.svg"></img>
         <div className={styles.LogoText}>

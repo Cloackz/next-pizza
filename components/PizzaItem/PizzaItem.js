@@ -50,7 +50,7 @@ const PizzaItem = ({ title, img, width, height, price, types, sizes }) => {
                 styles.OptionsItem,
                 activeSize === index ? styles.OptionsItemActive : null
               )}
-              key={index}
+              key={size}
               onClick={() => setActiveSize(index)}
             >
               {`${size} см.`}

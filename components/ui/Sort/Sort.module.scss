@@ -1,0 +1,73 @@
+@import '/styles/conf';
+
+.Sort {
+  position: relative;
+  z-index: 10;
+}
+
+.SortLabel {
+  display: flex;
+  align-items: center;
+  width: 220px;
+
+  svg,
+  b {
+    margin-right: 7px;
+  }
+}
+
+.SortArrow {
+  transform: rotate(180deg);
+}
+
+.SortArrowActive {
+  transform: rotate(0);
+}
+
+.SortText {
+  font-size: 14px;
+  line-height: calc(17 / 14);
+  color: $color-black;
+  font-weight: 700;
+}
+
+.SortButton {
+  cursor: pointer;
+  color: $color-orange;
+  border-bottom: 1px dashed $color-orange;
+  font-weight: 400;
+  transition: $transition-time $transition-ease;
+
+  &:hover,
+  &:focus {
+    color: rgba($color: $color-orange, $alpha: 0.8);
+    border-bottom: 1px dashed rgba($color: $color-orange, $alpha: 0.8);
+  }
+}
+
+.SortPopup {
+  position: absolute;
+  top: 30px;
+  left: 100px;
+  background: $color-white;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+  border-radius: 10px;
+  padding: 20px 14px;
+  max-width: 130px;
+  z-index: 2;
+}
+
+.SortPopupItem {
+  cursor: pointer;
+  font-size: 14px;
+  line-height: calc(17 / 14);
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+.SortPopupItemActive {
+  color: $color-orange;
+  font-weight: 700;
+}

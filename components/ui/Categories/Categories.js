@@ -1,5 +1,4 @@
 import { React, useState } from 'react'
-import GridBlock from '/components/ui/GridBlock/GridBlock'
 import styles from './Categories.module.scss'
 import data from '/data/categories'
 import classNames from 'classnames'
@@ -7,7 +6,7 @@ import classNames from 'classnames'
 const Categories = () => {
   const [activeCategory, setActiveCategory] = useState(0)
   return (
-    <GridBlock className={styles.Categories}>
+    <div className={styles.Categories}>
       <ul className={styles.List}>
         {data &&
           data.map((category, index) => (
@@ -23,7 +22,7 @@ const Categories = () => {
             </li>
           ))}
       </ul>
-    </GridBlock>
+    </div>
   )
 }
 

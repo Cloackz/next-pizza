@@ -1,12 +1,12 @@
 import Layout from '/components/Layout/Layout'
+import ControlBar from '/components/ControlBar/ControlBar'
 
-import Categories from '/components/Categories/Categories'
 import PizzaBlock from '/components/PizzaBlock/PizzaBlock'
 
 const index = () => {
   return (
     <Layout>
-      <Categories />
+      <ControlBar />
       <PizzaBlock />
     </Layout>
   )

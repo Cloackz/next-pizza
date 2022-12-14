@@ -1,0 +1,12 @@
+@import '/styles/conf';
+
+.ControlBar {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $media1200) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

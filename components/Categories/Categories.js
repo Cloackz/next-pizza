@@ -5,7 +5,7 @@ import data from '/data/categories'
 import classNames from 'classnames'
 
 const Categories = () => {
-  const [activeItem, setActiveItem] = useState(0)
+  const [activeCategory, setActiveCategory] = useState(0)
   return (
     <GridBlock className={styles.Categories}>
       <ul className={styles.List}>
@@ -14,10 +14,10 @@ const Categories = () => {
             <li
               className={classNames(
                 styles.Item,
-                activeItem === index ? styles.ItemActive : null
+                activeCategory === index ? styles.ItemActive : null
               )}
               key={index}
-              onClick={() => setActiveItem(index)}
+              onClick={() => setActiveCategory(index)}
             >
               {category}
             </li>

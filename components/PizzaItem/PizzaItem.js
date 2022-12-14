@@ -5,12 +5,11 @@ import Button from '/components/ui/Button/Button'
 
 import classNames from 'classnames'
 
-const PizzaItem = ({ title, img, width, height, price }) => {
-  const dough = ['тонкое', 'традиционное']
-  const sizes = ['26', '30', '40']
+const PizzaItem = ({ title, img, width, height, price, types, sizes }) => {
+  const typeName = ['тонкое', 'традиционное']
 
-  const [optionsSizeActive, setOptionsSizeActive] = useState(0)
-  const [optionsDoughActive, setOptionsDoughActive] = useState(0)
+  const [activeSize, setActiveSize] = useState(0)
+  const [activeType, setActiveType] = useState(0)
   const [pizzaCountActive, setPizzaCountActive] = useState(false)
   const [pizzaCount, setPizzaCount] = useState(0)
 
@@ -31,30 +30,30 @@ const PizzaItem = ({ title, img, width, height, price }) => {
       <span className={styles.Title}>{title}</span>
       <div className={styles.Options}>
         <ul className={classNames(styles.OptionsList, styles.OptionsListDough)}>
-          {dough.map((item, index) => (
+          {types.map((type) => (
             <li
               className={classNames(
                 styles.OptionsItem,
-                optionsDoughActive === index ? styles.OptionsItemActive : null
+                activeType === type ? styles.OptionsItemActive : null
               )}
-              key={index}
-              onClick={() => setOptionsDoughActive(index)}
+              key={type}
+              onClick={() => setActiveType(type)}
             >
-              {item}
+              {typeName[type]}
             </li>
           ))}
         </ul>
         <ul className={classNames(styles.OptionsList, styles.OptionsListSize)}>
-          {sizes.map((item, index) => (
+          {sizes.map((size, index) => (
             <li
               className={classNames(
                 styles.OptionsItem,
-                optionsSizeActive === index ? styles.OptionsItemActive : null
+                activeSize === index ? styles.OptionsItemActive : null
               )}
               key={index}
-              onClick={() => setOptionsSizeActive(index)}
+              onClick={() => setActiveSize(index)}
             >
-              {`${item} см.`}
+              {`${size} см.`}
             </li>
           ))}
         </ul>

@@ -42,12 +42,6 @@
   margin-bottom: 7px;
 }
 
-.OptionsListSize {
-  .OptionsItem {
-    width: 33%;
-  }
-}
-
 .OptionsItem {
   cursor: pointer;
   font-size: 14px;
@@ -56,7 +50,7 @@
   text-align: center;
   padding: 5px;
   border-radius: 10px;
-  width: 50%;
+  width: 100%;
   opacity: 0.3;
   color: $color-black;
   transition: $transition-time $transition-ease;

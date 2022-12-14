@@ -10,8 +10,8 @@ const Header = () => {
       <div className={styles.Logo}>
         <img src="/img/logo.svg"></img>
         <div className={styles.LogoText}>
-          <h1>pizza</h1>
-          <p>самая вкусная пицца во вселенной</p>
+          <h1>pizza_kaif</h1>
+          <p>Сгоревшая пицца от великого шефа - Лазерсона</p>
         </div>
       </div>
       <Button className={styles.Button}>

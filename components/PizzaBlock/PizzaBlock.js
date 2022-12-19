@@ -9,7 +9,7 @@ import styles from './PizzaBlock.module.scss'
 const PizzaBlock = () => {
   const API_URL = 'https://63998b6316b0fdad7740477b.mockapi.io/items'
 
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState()
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const PizzaBlock = () => {
       <ul className={styles.List}>
         {isLoading
           ? [...new Array(8)].map((_, index) => <Skeleton key={index} />)
-          : items.map((item) => (
+          : items?.map((item) => (
               <PizzaItem
                 title={item.title}
                 img={`/img/pizzaItem/${item.src}.png`}

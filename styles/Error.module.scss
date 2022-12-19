@@ -1,0 +1,14 @@
+@import '/styles/conf';
+
+.Error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 600px;
+}
+
+.ErrorTitle {
+  margin-bottom: 50px;
+}

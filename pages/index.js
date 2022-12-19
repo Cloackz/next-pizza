@@ -5,7 +5,7 @@ import PizzaBlock from '/components/PizzaBlock/PizzaBlock'
 
 const index = () => {
   return (
-    <Layout>
+    <Layout page="main">
       <ControlBar />
       <PizzaBlock />
     </Layout>

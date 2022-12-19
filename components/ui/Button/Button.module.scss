@@ -1,6 +1,8 @@
 @import '/styles/conf';
 
 .Button {
+  display: flex;
+  justify-content: center;
   cursor: pointer;
   border: none;
   outline: none;
@@ -13,6 +15,7 @@
   font-size: 14px;
   line-height: calc(20 / 14);
   transition: $transition-time $transition-ease;
+  text-decoration: none;
 
   @media (min-width: $media768) {
     font-size: 16px;

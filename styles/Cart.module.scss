@@ -1,0 +1,31 @@
+@import '/styles/conf';
+
+.Cart {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.CartHeader {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 0;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.CartTitle,
+.CartClean {
+  display: flex;
+}
+
+.CartTitle {
+  img {
+    margin-right: 18px;
+  }
+}
+
+.CartClean {
+  color: #b6b6b6;
+  img {
+    margin-right: 10px;
+  }
+}

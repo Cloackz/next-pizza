@@ -1,26 +1,32 @@
-import { React, useState } from 'react'
+import React from 'react'
 import styles from './Categories.module.scss'
-import data from '/data/categories'
 import classNames from 'classnames'
 
-const Categories = () => {
-  const [activeCategory, setActiveCategory] = useState(0)
+const Categories = ({ activeItem, setActiveItem }) => {
+  const categories = [
+    'все',
+    'Мясные',
+    'Вегетарианская',
+    'Гриль',
+    'Острые',
+    'Закрытые',
+  ]
+
   return (
     <div className={styles.Categories}>
       <ul className={styles.List}>
-        {data &&
-          data.map((category, index) => (
-            <li
-              className={classNames(
-                styles.Item,
-                activeCategory === index ? styles.ItemActive : null
-              )}
-              key={index}
-              onClick={() => setActiveCategory(index)}
-            >
-              {category}
-            </li>
-          ))}
+        {categories.map((category, index) => (
+          <li
+            className={classNames(
+              styles.Item,
+              activeItem === index ? styles.ItemActive : null
+            )}
+            key={index}
+            onClick={() => setActiveItem(index)}
+          >
+            {category}
+          </li>
+        ))}
       </ul>
     </div>
   )

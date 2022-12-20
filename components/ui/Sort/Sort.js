@@ -3,12 +3,18 @@ import classNames from 'classnames'
 
 import styles from './Sort.module.scss'
 
-const Sort = () => {
+const Sort = ({ activeItem, setActiveItem }) => {
   const [openPopup, setOpenPopup] = useState(false)
   const [activeArrow, setActiveArrow] = useState(false)
-  const [selected, setSelected] = useState(0)
 
-  const sortList = ['популярности', 'цене', 'алфавиту']
+  const sortList = [
+    { name: 'популярности (воз)', sortProp: 'rating' },
+    { name: 'популярности (уб)', sortProp: '-rating' },
+    { name: 'цене (воз)', sortProp: 'price' },
+    { name: 'цене (уб)', sortProp: '-price' },
+    { name: 'алфавиту (воз)', sortProp: 'title' },
+    { name: 'алфавиту (уб)', sortProp: '-title' },
+  ]
 
   const onClickButton = () => {
     setOpenPopup(!openPopup)
@@ -16,7 +22,7 @@ const Sort = () => {
   }
 
   const onClickList = (index) => {
-    setSelected(index)
+    setActiveItem(index)
     setOpenPopup(!openPopup)
   }
 
@@ -44,22 +50,24 @@ const Sort = () => {
           onClick={() => onClickButton()}
           className={classNames(styles.SortText, styles.SortButton)}
         >
-          {sortList[selected]}
+          {activeItem.name}
         </span>
       </div>
       {openPopup && (
         <div className={styles.SortPopup}>
           <ul className={styles.SortPopupList}>
-            {sortList.map((item, index) => (
+            {sortList.map((objSort, index) => (
               <li
                 className={classNames(
                   styles.SortPopupItem,
-                  selected === index ? styles.SortPopupItemActive : null
+                  activeItem.sortProp === objSort.sortProp
+                    ? styles.SortPopupItemActive
+                    : null
                 )}
-                key={item}
-                onClick={() => onClickList(index)}
+                key={index}
+                onClick={() => onClickList(objSort)}
               >
-                {item}
+                {objSort.name}
               </li>
             ))}
           </ul>

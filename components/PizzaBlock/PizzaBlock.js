@@ -1,34 +1,16 @@
-import React, { useState, useEffect } from 'react'
-
 import GridBlock from '/components/ui/GridBlock/GridBlock'
 import PizzaItem from '/components/PizzaItem/PizzaItem'
 import Skeleton from '/components/ui/PizzaSkeleton/PizzaSkeleton'
 
 import styles from './PizzaBlock.module.scss'
 
-const PizzaBlock = () => {
-  const API_URL = 'https://63998b6316b0fdad7740477b.mockapi.io/items'
-
-  const [items, setItems] = useState()
-  const [isLoading, setIsLoading] = useState(true)
-
-  useEffect(() => {
-    fetch(API_URL)
-      .then((res) => {
-        return res.json()
-      })
-      .then((pizzas) => {
-        setItems(pizzas)
-        setIsLoading(false)
-      })
-  }, [])
-
+const PizzaBlock = ({ isLoading, items }) => {
   return (
     <GridBlock>
       <h1 className={styles.Title}>Все пиццы</h1>
       <ul className={styles.List}>
         {isLoading
-          ? [...new Array(8)].map((_, index) => <Skeleton key={index} />)
+          ? [...new Array(8)].map((_, i) => <Skeleton key={i} />)
           : items?.map((item) => (
               <PizzaItem
                 title={item.title}

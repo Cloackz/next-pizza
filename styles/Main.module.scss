@@ -1,7 +1,14 @@
 @import '/styles/conf';
 
-.ContainerHeader {
-  border-bottom: 1px solid #f7f7f7;
+.ControlBar {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $media1200) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 .Button {

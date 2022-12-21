@@ -14,7 +14,11 @@
     padding: 0 -5px;
   }
 
-  @media (min-width: $media600) {
+  @media (min-width: $media1200) {
     justify-content: start;
   }
+}
+
+.Skeleton {
+  margin: 0 25px;
 }

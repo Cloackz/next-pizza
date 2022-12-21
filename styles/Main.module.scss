@@ -3,6 +3,7 @@
 .ControlBar {
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   @media (min-width: $media1200) {
     flex-direction: row;
@@ -11,8 +12,40 @@
   }
 }
 
+.Header {
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+
+  @media (min-width: $media500) {
+    align-items: center;
+  }
+
+  @media (min-width: 850px) {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.RightBlock {
+  display: flex;
+  align-items: center;
+
+  @media (min-width: $media500) {
+    margin-top: 20px;
+  }
+}
+
 .Button {
   display: flex;
+  align-items: center;
+  position: absolute;
+  top: 50px;
+  right: 30px;
+
+  @media (min-width: $media500) {
+    position: static;
+  }
 }
 
 .ButtonPrice {
@@ -49,5 +82,13 @@
     width: 14px;
     height: 14px;
     margin-right: 6px;
+  }
+}
+
+.Search {
+  margin-top: 20px;
+
+  @media (min-width: $media500) {
+    margin: 0 20px 0 0;
   }
 }

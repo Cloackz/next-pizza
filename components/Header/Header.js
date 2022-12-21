@@ -4,9 +4,9 @@ import Link from 'next/link'
 import styles from './Header.module.scss'
 import classNames from 'classnames'
 
-const Header = ({ children }) => {
+const Header = ({ children, className }) => {
   return (
-    <GridBlock Tag="header" className={classNames(styles.Header)}>
+    <GridBlock Tag="header" className={classNames(styles.Header, className)}>
       <div className={styles.Logo}>
         <Link href="/">
           <img src="/img/logo.svg"></img>

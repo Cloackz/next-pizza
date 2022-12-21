@@ -10,7 +10,9 @@ const PizzaBlock = ({ isLoading, items }) => {
       <h1 className={styles.Title}>Все пиццы</h1>
       <ul className={styles.List}>
         {isLoading
-          ? [...new Array(8)].map((_, i) => <Skeleton key={i} />)
+          ? [...new Array(8)].map((_, i) => (
+              <Skeleton className={styles.Skeleton} key={i} />
+            ))
           : items?.map((item) => (
               <PizzaItem
                 title={item.title}

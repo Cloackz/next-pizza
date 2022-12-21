@@ -10,10 +10,10 @@ import styles from '/styles/Main.module.scss'
 const Layout = ({ children, page }) => {
   return (
     <Container>
-      <Header>
+      <Header className={styles.Header}>
         {page === 'main' && (
-          <>
-            <Search />
+          <div className={styles.RightBlock}>
+            <Search className={styles.Search} />
             <Button className={styles.Button} href={'/cart'}>
               <span className={styles.ButtonPrice}>520 ₽</span>
               <div className={styles.ButtonMount}>
@@ -21,7 +21,7 @@ const Layout = ({ children, page }) => {
                 <span>3</span>
               </div>
             </Button>
-          </>
+          </div>
         )}
       </Header>
       <main>{children}</main>

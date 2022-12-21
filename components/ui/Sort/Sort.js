@@ -1,9 +1,15 @@
 import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { setSort } from '/redux/slices/filterSlice'
+
 import classNames from 'classnames'
 
 import styles from './Sort.module.scss'
 
-const Sort = ({ activeItem, setActiveItem }) => {
+const Sort = () => {
+  const dispatch = useDispatch()
+  const activeSort = useSelector((state) => state.filter.sort)
+
   const [openPopup, setOpenPopup] = useState(false)
   const [activeArrow, setActiveArrow] = useState(false)
 
@@ -21,8 +27,8 @@ const Sort = ({ activeItem, setActiveItem }) => {
     setActiveArrow(!activeArrow)
   }
 
-  const onClickList = (index) => {
-    setActiveItem(index)
+  const onClickList = (objSort) => {
+    dispatch(setSort(objSort))
     setOpenPopup(!openPopup)
   }
 
@@ -50,7 +56,7 @@ const Sort = ({ activeItem, setActiveItem }) => {
           onClick={() => onClickButton()}
           className={classNames(styles.SortText, styles.SortButton)}
         >
-          {activeItem.name}
+          {activeSort.name}
         </span>
       </div>
       {openPopup && (
@@ -60,7 +66,7 @@ const Sort = ({ activeItem, setActiveItem }) => {
               <li
                 className={classNames(
                   styles.SortPopupItem,
-                  activeItem.sortProp === objSort.sortProp
+                  activeSort.sortProp === objSort.sortProp
                     ? styles.SortPopupItemActive
                     : null
                 )}

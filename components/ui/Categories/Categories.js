@@ -17,7 +17,7 @@ const Categories = () => {
   ]
 
   const dispatch = useDispatch()
-  const activeCategory = useSelector((state) => state.filter.category)
+  const activeCategory = useSelector((state) => state.filter.categoryId)
 
   const changeCategory = (index) => {
     dispatch(setCategory(index))

@@ -1,55 +1,63 @@
-import React, { useState, useEffect, createContext } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React, { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import axios from 'axios'
 
 import GridBlock from '/components/ui/GridBlock/GridBlock'
 import Layout from '/components/Layout/Layout'
 import Categories from '/components/ui/Categories/Categories'
 import Sort from '/components/ui/Sort/Sort'
 import PizzaBlock from '/components/PizzaBlock/PizzaBlock'
+import Pagination from '/components/ui/Pagination/Pagination'
 
 import styles from '/styles/Main.module.scss'
 
-export const SearchContext = createContext()
-
 const index = () => {
-  const dispatch = useDispatch()
-  const { category, sort } = useSelector((state) => state.filter)
+  const { categoryId, sortId } = useSelector((state) => state.filter)
+  const { searchValue } = useSelector((state) => state.search)
 
-  const [searchValue, setSearchValue] = useState('')
   const [pizzasItems, setPizzasItems] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
 
-  const categoryFetch = category > 0 ? `category=${category}` : ''
-  const sortFectch = sort.sortProp.includes('-') ? 'desc' : 'asc'
-  const sortBy = sort.sortProp.replace('-', '')
-  const search = searchValue ? `&search=${searchValue}` : ''
-
-  const API_URL = 'https://63998b6316b0fdad7740477b.mockapi.io/items?'
+  const [currentPage, setCurrentPage] = useState(1)
+  const [countPizzas] = useState(8)
 
   useEffect(() => {
+    const API_URL = `https://63998b6316b0fdad7740477b.mockapi.io/items?`
+    const categoryApi = categoryId > 0 ? `category=${categoryId}` : ''
+    const sortApi = sortId.sortProp.includes('-') ? 'desc' : 'asc'
+    const sortByApi = sortId.sortProp.replace('-', '')
+    const searchApi = searchValue ? `&search=${searchValue}` : ''
+
     setIsLoading(true)
-    fetch(
-      `${API_URL}${categoryFetch}&sortBy=${sortBy}&order=${sortFectch}${search}`
-    )
+    axios
+      .get(
+        `${API_URL}&page=${currentPage}&${categoryApi}&sortBy=${sortByApi}&order=${sortApi}${searchApi}`
+      )
       .then((res) => {
-        return res.json()
-      })
-      .then((pizzas) => {
-        setPizzasItems(pizzas)
+        setPizzasItems(res.data)
         setIsLoading(false)
       })
-  }, [category, sort.sortProp, searchValue])
+  }, [currentPage, categoryId, sortId.sortProp, searchValue])
+
+  const lastPizzaIndex = currentPage * countPizzas
+  const firstPizzaIndex = lastPizzaIndex - countPizzas
+  const currentPizza = pizzasItems.slice(firstPizzaIndex, lastPizzaIndex)
+
+  const onClickPaginate = (pageNumber) => setCurrentPage(pageNumber)
 
   return (
-    <SearchContext.Provider value={{ searchValue, setSearchValue }}>
-      <Layout page="main">
-        <GridBlock className={styles.ControlBar}>
-          <Categories />
-          <Sort />
-        </GridBlock>
-        <PizzaBlock items={pizzasItems} isLoading={isLoading} />
-      </Layout>
-    </SearchContext.Provider>
+    <Layout page="main">
+      <GridBlock className={styles.ControlBar}>
+        <Categories />
+        <Sort />
+      </GridBlock>
+      <PizzaBlock items={currentPizza} isLoading={isLoading} />
+      <Pagination
+        countPizzas={countPizzas}
+        totalPizzas={pizzasItems.length}
+        onClickPaginate={onClickPaginate}
+      />
+    </Layout>
   )
 }
 

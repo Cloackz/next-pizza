@@ -8,7 +8,7 @@ import styles from './Sort.module.scss'
 
 const Sort = () => {
   const dispatch = useDispatch()
-  const activeSort = useSelector((state) => state.filter.sort)
+  const sortActive = useSelector((state) => state.filter.sortId)
 
   const [openPopup, setOpenPopup] = useState(false)
   const [activeArrow, setActiveArrow] = useState(false)
@@ -56,7 +56,7 @@ const Sort = () => {
           onClick={() => onClickButton()}
           className={classNames(styles.SortText, styles.SortButton)}
         >
-          {activeSort.name}
+          {sortActive.name}
         </span>
       </div>
       {openPopup && (
@@ -66,7 +66,7 @@ const Sort = () => {
               <li
                 className={classNames(
                   styles.SortPopupItem,
-                  activeSort.sortProp === objSort.sortProp
+                  sortActive.sortProp === objSort.sortProp
                     ? styles.SortPopupItemActive
                     : null
                 )}

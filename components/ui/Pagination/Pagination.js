@@ -1,20 +1,35 @@
 import React from 'react'
+import classNames from 'classnames'
 
 import GridBlock from '/components/ui/GridBlock/GridBlock'
 
-const Pagination = ({ countPizzas, totalPizzas, onClickPaginate }) => {
+import styles from './Pagination.module.scss'
+
+const Pagination = ({
+  countPizzasPerPage,
+  totalPizzas,
+  onClickPaginate,
+  currentPage,
+}) => {
   const pageNumbers = []
 
-  for (let i = 1; i <= Math.ceil(totalPizzas / countPizzas); i++) {
+  for (let i = 1; i <= Math.ceil(totalPizzas / countPizzasPerPage); i++) {
     pageNumbers.push(i)
   }
 
   return (
-    <GridBlock>
-      <ul>
+    <GridBlock className={styles.Pagination}>
+      <ul className={styles.PaginationList}>
         {pageNumbers.map((number) => (
-          <li key={number}>
-            <span onClick={() => onClickPaginate(number)}>{number}</span>
+          <li
+            onClick={() => onClickPaginate(number)}
+            key={number}
+            className={classNames(
+              styles.PaginationItem,
+              currentPage === number ? styles.PaginationItemActive : null
+            )}
+          >
+            {number}
           </li>
         ))}
       </ul>

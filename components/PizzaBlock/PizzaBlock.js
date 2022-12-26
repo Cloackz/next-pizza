@@ -4,13 +4,13 @@ import Skeleton from '/components/ui/PizzaSkeleton/PizzaSkeleton'
 
 import styles from './PizzaBlock.module.scss'
 
-const PizzaBlock = ({ isLoading, items }) => {
+const PizzaBlock = ({ isLoading, items, countPizzasPerPage }) => {
   return (
     <GridBlock>
       <h1 className={styles.Title}>Все пиццы</h1>
       <ul className={styles.List}>
         {isLoading
-          ? [...new Array(8)].map((_, i) => (
+          ? [...new Array(countPizzasPerPage)].map((_, i) => (
               <Skeleton className={styles.Skeleton} key={i} />
             ))
           : items?.map((item) => (

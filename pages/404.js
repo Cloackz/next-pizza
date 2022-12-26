@@ -8,9 +8,7 @@ const error = () => {
   return (
     <Layout>
       <GridBlock className={styles.Error}>
-        <h1 className={styles.ErrorTitle}>
-          Извините, такой стараницы не существует!
-        </h1>
+        <h1 className={styles.ErrorTitle}>Такой страницы не существует!</h1>
         <Button href={'/'}>Вернуться на главную</Button>
       </GridBlock>
     </Layout>

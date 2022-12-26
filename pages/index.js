@@ -19,7 +19,7 @@ const index = () => {
   const [isLoading, setIsLoading] = useState(false)
 
   const [currentPage, setCurrentPage] = useState(1)
-  const [countPizzas] = useState(8)
+  const [countPizzasPerPage] = useState(4)
 
   useEffect(() => {
     const API_URL = `https://63998b6316b0fdad7740477b.mockapi.io/items?`
@@ -39,8 +39,8 @@ const index = () => {
       })
   }, [currentPage, categoryId, sortId.sortProp, searchValue])
 
-  const lastPizzaIndex = currentPage * countPizzas
-  const firstPizzaIndex = lastPizzaIndex - countPizzas
+  const lastPizzaIndex = currentPage * countPizzasPerPage
+  const firstPizzaIndex = lastPizzaIndex - countPizzasPerPage
   const currentPizza = pizzasItems.slice(firstPizzaIndex, lastPizzaIndex)
 
   const onClickPaginate = (pageNumber) => setCurrentPage(pageNumber)
@@ -51,12 +51,19 @@ const index = () => {
         <Categories />
         <Sort />
       </GridBlock>
-      <PizzaBlock items={currentPizza} isLoading={isLoading} />
-      <Pagination
-        countPizzas={countPizzas}
-        totalPizzas={pizzasItems.length}
-        onClickPaginate={onClickPaginate}
+      <PizzaBlock
+        items={currentPizza}
+        isLoading={isLoading}
+        countPizzasPerPage={countPizzasPerPage}
       />
+      {countPizzasPerPage < pizzasItems.length ? (
+        <Pagination
+          countPizzasPerPage={countPizzasPerPage}
+          totalPizzas={pizzasItems.length}
+          onClickPaginate={onClickPaginate}
+          currentPage={currentPage}
+        />
+      ) : null}
     </Layout>
   )
 }

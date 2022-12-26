@@ -1,0 +1,43 @@
+@import '/styles/conf';
+
+.Pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.PaginationList {
+  display: flex;
+  align-items: center;
+}
+
+.PaginationItem {
+  cursor: pointer;
+  background: transparent;
+  color: $color-orange;
+  border: 1px solid $color-orange;
+  border-radius: 50%;
+  padding: 5px;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background color $transition-time $transition-ease;
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  &:hover,
+  &:focus {
+    background: $color-orange;
+    color: $color-white;
+    border: 1px solid transparent;
+  }
+}
+
+.PaginationItemActive {
+  background: $color-orange;
+  color: $color-white;
+  border: 1px solid transparent;
+}

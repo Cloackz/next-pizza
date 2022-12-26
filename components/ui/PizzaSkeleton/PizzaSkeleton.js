@@ -13,7 +13,7 @@ const Skeleton = ({ className }) => (
   >
     <circle cx="134" cy="136" r="125" />
     <rect x="0" y="279" rx="10" ry="10" width="260" height="23" />
-    <rect x="0" y="326" rx="10" ry="10" width="260" height="70" />
+    <rect x="0" y="336" rx="10" ry="10" width="260" height="75" />
     <rect x="0" y="436" rx="10" ry="10" width="95" height="30" />
     <rect x="125" y="427" rx="24" ry="24" width="140" height="45" />
   </ContentLoader>

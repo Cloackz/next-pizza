@@ -14,15 +14,18 @@
   cursor: pointer;
   background: transparent;
   color: $color-orange;
+  font-weight: 700;
   border: 1px solid $color-orange;
   border-radius: 50%;
-  padding: 5px;
+  padding: 20px;
   width: 25px;
   height: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background color $transition-time $transition-ease;
+  transition: background $transition-time $transition-ease,
+    color $transition-time $transition-ease,
+    border $transition-time $transition-ease;
 
   &:not(:last-child) {
     margin-right: 10px;

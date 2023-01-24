@@ -18,8 +18,8 @@ const index = () => {
   const [pizzasItems, setPizzasItems] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
-  const [currentPage, setCurrentPage] = useState(1)
-  const [countPizzasPerPage] = useState(4)
+  // const [currentPage, setCurrentPage] = useState(1)
+  // const [countPizzasPerPage] = useState(4)
 
   useEffect(() => {
     const API_URL = `https://63998b6316b0fdad7740477b.mockapi.io/items?`
@@ -31,19 +31,19 @@ const index = () => {
     setIsLoading(true)
     axios
       .get(
-        `${API_URL}&page=${currentPage}&${categoryApi}&sortBy=${sortByApi}&order=${sortApi}${searchApi}`
+        `${API_URL}&${categoryApi}&sortBy=${sortByApi}&order=${sortApi}${searchApi}`
       )
       .then((res) => {
         setPizzasItems(res.data)
         setIsLoading(false)
       })
-  }, [currentPage, categoryId, sortId.sortProp, searchValue])
+  }, [categoryId, sortId.sortProp, searchValue])
 
-  const lastPizzaIndex = currentPage * countPizzasPerPage
-  const firstPizzaIndex = lastPizzaIndex - countPizzasPerPage
-  const currentPizza = pizzasItems.slice(firstPizzaIndex, lastPizzaIndex)
+  // const lastPizzaIndex = currentPage * countPizzasPerPage
+  // const firstPizzaIndex = lastPizzaIndex - countPizzasPerPage
+  // const currentPizza = pizzasItems.slice(firstPizzaIndex, lastPizzaIndex)
 
-  const onClickPaginate = (pageNumber) => setCurrentPage(pageNumber)
+  // const onClickPaginate = (pageNumber) => setCurrentPage(pageNumber)
 
   return (
     <Layout page="main">
@@ -51,19 +51,15 @@ const index = () => {
         <Categories />
         <Sort />
       </GridBlock>
-      <PizzaBlock
-        items={currentPizza}
-        isLoading={isLoading}
-        countPizzasPerPage={countPizzasPerPage}
-      />
-      {countPizzasPerPage < pizzasItems.length ? (
+      <PizzaBlock items={pizzasItems} isLoading={isLoading} />
+      {/* {countPizzasPerPage < pizzasItems.length ? (
         <Pagination
           countPizzasPerPage={countPizzasPerPage}
           totalPizzas={pizzasItems.length}
           onClickPaginate={onClickPaginate}
           currentPage={currentPage}
         />
-      ) : null}
+      ) : null} */}
     </Layout>
   )
 }

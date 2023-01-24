@@ -1,31 +1,47 @@
 import { React, useState } from 'react'
-import Image from 'next/image'
+import { useDispatch, useSelector } from 'react-redux'
+import { addItem } from '/redux/slices/cartSlice'
+
 import styles from './PizzaItem.module.scss'
 import Button from '/components/ui/Button/Button'
 
 import classNames from 'classnames'
 
-const PizzaItem = ({ title, img, width, height, price, types, sizes }) => {
-  const typeName = ['тонкое', 'традиционное']
+const typeName = ['тонкое', 'традиционное']
+const sizePizza = [26, 30, 40]
+
+const PizzaItem = ({ id, title, img, price, types, sizes }) => {
+  const dispatch = useDispatch()
+  const cartItem = useSelector((state) =>
+    state.cart.items.find((obj) => obj.id === id)
+  )
 
   const [activeSize, setActiveSize] = useState(0)
   const [activeType, setActiveType] = useState(0)
-  const [pizzaCountActive, setPizzaCountActive] = useState(false)
-  const [pizzaCount, setPizzaCount] = useState(0)
 
-  const pizzaButtonHandle = () => {
-    setPizzaCountActive(true)
-    setPizzaCount(pizzaCount + 1)
+  const addedCount = cartItem ? cartItem.count : 0
+
+  const onClickAddItem = () => {
+    const item = {
+      id,
+      title,
+      price,
+      img,
+      types: typeName[activeType],
+      sizes: sizePizza[activeSize],
+    }
+
+    dispatch(addItem(item))
   }
 
   return (
     <li className={styles.Item}>
-      <Image
+      <img
         className={styles.Image}
         src={img}
         alt={title}
-        width={width}
-        height={height}
+        width={260}
+        height={260}
       />
       <span className={styles.Title}>{title}</span>
       <div className={styles.Options}>
@@ -59,8 +75,8 @@ const PizzaItem = ({ title, img, width, height, price, types, sizes }) => {
         </ul>
       </div>
       <div className={styles.Wrapper}>
-        <span className={styles.Price}>от {price} р</span>
-        <Button className={styles.Button} onClick={() => pizzaButtonHandle()}>
+        <span className={styles.Price}>от {price} ₽</span>
+        <Button className={styles.Button} onClick={onClickAddItem}>
           <svg
             width="12"
             height="12"
@@ -77,10 +93,10 @@ const PizzaItem = ({ title, img, width, height, price, types, sizes }) => {
           <div
             className={classNames(
               styles.ButtonCount,
-              pizzaCountActive && styles.ButtonCountActive
+              addedCount && styles.ButtonCountActive
             )}
           >
-            {pizzaCount}
+            {addedCount > 0 && addedCount}
           </div>
         </Button>
       </div>

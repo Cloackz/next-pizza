@@ -1,0 +1,67 @@
+@import '/styles/conf';
+
+.RightBlock {
+  display: flex;
+  align-items: center;
+
+  @media (min-width: $media500) {
+    margin-top: 20px;
+  }
+}
+
+.Button {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 50px;
+  right: 30px;
+
+  @media (min-width: $media500) {
+    position: static;
+  }
+}
+
+.ButtonPrice {
+  display: block;
+  position: relative;
+  padding-right: 7px;
+
+  @media (min-width: $media500) {
+    padding-right: 14px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 1px;
+    height: 25px;
+    top: -5px;
+    right: 0;
+    background: rgba(255, 255, 255, 0.25);
+  }
+}
+
+.ButtonMount {
+  display: flex;
+  align-items: center;
+  padding-left: 7px;
+
+  @media (min-width: $media500) {
+    padding-left: 14px;
+  }
+
+  img {
+    width: 14px;
+    height: 14px;
+    margin-right: 6px;
+  }
+}
+
+.Search {
+  margin-top: 20px;
+
+  @media (min-width: $media500) {
+    margin: 0 20px 0 0;
+  }
+}

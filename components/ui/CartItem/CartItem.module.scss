@@ -1,0 +1,106 @@
+@import '/styles/conf';
+
+.Item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 0;
+  border-top: 1px solid #f4f4f4;
+
+  @media (min-width: $media768) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.ItemLeft,
+.ItemRight {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  @media (min-width: $media768) {
+    width: 50%;
+  }
+}
+
+.ItemLeft {
+  margin-bottom: 20px;
+
+  @media (min-width: $media768) {
+    margin-bottom: 0;
+  }
+}
+
+.ItemRight {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ItemImg {
+  width: 80px;
+  height: 80px;
+  margin-right: 15px;
+}
+
+.ItemOptions {
+  font-size: 18px;
+  line-height: calc(22 / 18);
+  color: #8d8d8d;
+}
+
+.Count {
+  display: flex;
+  align-items: center;
+}
+
+.CountButton,
+.ButtonDelete {
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: 1px solid $color-orange;
+  border-radius: 50%;
+  line-height: 0;
+
+  &::before {
+    content: url('/img/cart-minus.svg');
+    width: 10px;
+    height: 2px;
+  }
+}
+
+.CountButtonPlus {
+  &::before {
+    content: url('/img/cart-plus.svg');
+    width: 10px;
+    height: 10px;
+  }
+}
+
+.CountText {
+  margin: 0 12px;
+}
+
+.ItemTitle,
+.CountText,
+.Price {
+  font-size: 18px;
+  line-height: calc(27 / 22);
+  font-weight: 700;
+
+  @media (min-width: 500px) {
+    font-size: 22px;
+  }
+}
+
+.ButtonDelete {
+  border: 1px solid #d7d7d7;
+
+  &::before {
+    content: url('/img/cart-delete.svg');
+    width: 10px;
+    height: 10px;
+  }
+}

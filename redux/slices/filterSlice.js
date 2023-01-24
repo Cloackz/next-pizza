@@ -3,8 +3,8 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   categoryId: 0,
   sortId: {
-    name: 'популярности',
-    sortProp: 'rating',
+    name: 'выберите сортировку',
+    sortProp: '',
   },
 }
 

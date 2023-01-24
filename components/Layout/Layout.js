@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 
+import RightBlock from '/components/ui/HeaderRightBlock/HeaderRightBlock'
 import Header from '/components/Header/Header'
-import Button from '../ui/Button/Button'
 import Container from '/components/ui/Container/Container'
-import Search from '/components/ui/Search/Search'
 
 import styles from '/styles/Main.module.scss'
 
@@ -11,18 +10,7 @@ const Layout = ({ children, page }) => {
   return (
     <Container>
       <Header className={styles.Header}>
-        {page === 'main' && (
-          <div className={styles.RightBlock}>
-            <Search className={styles.Search} />
-            <Button className={styles.Button} href={'/cart'}>
-              <span className={styles.ButtonPrice}>520 ₽</span>
-              <div className={styles.ButtonMount}>
-                <img src="/img/cart-button.svg"></img>
-                <span>3</span>
-              </div>
-            </Button>
-          </div>
-        )}
+        {page === 'main' && <RightBlock />}
       </Header>
       <main>{children}</main>
     </Container>

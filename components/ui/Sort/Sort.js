@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { setSort } from '/redux/slices/filterSlice'
 
@@ -10,10 +10,12 @@ const Sort = () => {
   const dispatch = useDispatch()
   const sortActive = useSelector((state) => state.filter.sortId)
 
+  const sortRef = useRef()
   const [openPopup, setOpenPopup] = useState(false)
   const [activeArrow, setActiveArrow] = useState(false)
 
   const sortList = [
+    // { name: 'выберите', sortProp: '' },
     { name: 'популярности (воз)', sortProp: 'rating' },
     { name: 'популярности (уб)', sortProp: '-rating' },
     { name: 'цене (воз)', sortProp: 'price' },
@@ -32,8 +34,24 @@ const Sort = () => {
     setOpenPopup(!openPopup)
   }
 
+  // закрытие попапа по клику вне его видимости
+  useEffect(() => {
+    const HandleClickOutside = (e) => {
+      const path = e.composedPath()
+
+      if (!path.includes(sortRef.current)) {
+        setOpenPopup(false)
+      }
+    }
+    document.body.addEventListener('click', HandleClickOutside)
+
+    return () => {
+      document.body.removeEventListener('click', HandleClickOutside)
+    }
+  }, [])
+
   return (
-    <div className={styles.Sort}>
+    <div ref={sortRef} className={styles.Sort}>
       <div className={styles.SortLabel}>
         <svg
           className={classNames(

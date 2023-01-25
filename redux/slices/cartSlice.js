@@ -43,12 +43,8 @@ const cartSlice = createSlice({
   },
 })
 
+export const selectCart = (state) => state.cart
+
 export const { addItem, removeItem, minusItem, clearItems } = cartSlice.actions
 
 export default cartSlice.reducer
-
-// findItem.count > 1
-//   ? findItem.count--
-//   : (state.items = state.items.filter((obj) => obj.id !== action.payload))
-
-// state.totalPrice -= findItem.price

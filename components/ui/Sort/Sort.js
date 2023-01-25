@@ -15,7 +15,6 @@ const Sort = () => {
   const [activeArrow, setActiveArrow] = useState(false)
 
   const sortList = [
-    // { name: 'выберите', sortProp: '' },
     { name: 'популярности (воз)', sortProp: 'rating' },
     { name: 'популярности (уб)', sortProp: '-rating' },
     { name: 'цене (воз)', sortProp: 'price' },

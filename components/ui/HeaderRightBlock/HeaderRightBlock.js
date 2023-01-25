@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux'
+import { selectCart } from '/redux/slices/cartSlice'
 
 import Button from '/components/ui/Button/Button'
 import Search from '/components/ui/Search/Search'
@@ -6,7 +7,7 @@ import Search from '/components/ui/Search/Search'
 import styles from './Header.rightBlock.module.scss'
 
 const HeaderRightBlock = () => {
-  const { items, totalPrice } = useSelector((state) => state.cart)
+  const { items, totalPrice } = useSelector(selectCart)
   const totalCount = items.reduce((sum, item) => sum + item.count, 0)
 
   return (

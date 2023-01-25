@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { clearItems } from '/redux/slices/cartSlice'
+import { clearItems, selectCart } from '/redux/slices/cartSlice'
 import Link from 'next/link'
 
 import CartItem from '/components/ui/CartItem/CartItem'
@@ -12,7 +12,7 @@ import styles from '/styles/Cart.module.scss'
 const cart = () => {
   const dispatch = useDispatch()
   const obj = useSelector((state) => state.cart.items)
-  const { items, totalPrice } = useSelector((state) => state.cart)
+  const { items, totalPrice } = useSelector(selectCart)
   const totalCount = items.reduce((sum, item) => sum + item.count, 0)
 
   const onClickClearCart = () => {

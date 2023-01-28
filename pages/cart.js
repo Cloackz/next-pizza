@@ -59,7 +59,9 @@ const cart = () => {
                 <Link href="/">
                   <Button className={styles.ButtonBack}>Вернуться назад</Button>
                 </Link>
-                <Button className={styles.ButtonPay}>Оплатить сейчас</Button>
+                <Link href="/order">
+                  <Button className={styles.ButtonPay}>Оплатить сейчас</Button>
+                </Link>
               </div>
             </div>
           </div>

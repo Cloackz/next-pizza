@@ -11,6 +11,12 @@
 }
 
 .PaginationItem {
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
+.PaginationButton {
   cursor: pointer;
   background: transparent;
   color: $color-orange;
@@ -27,10 +33,6 @@
     color $transition-time $transition-ease,
     border $transition-time $transition-ease;
 
-  &:not(:last-child) {
-    margin-right: 10px;
-  }
-
   &:hover,
   &:focus {
     background: $color-orange;
@@ -39,7 +41,7 @@
   }
 }
 
-.PaginationItemActive {
+.PaginationButtonActive {
   background: $color-orange;
   color: $color-white;
   border: 1px solid transparent;

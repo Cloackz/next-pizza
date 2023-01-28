@@ -4,17 +4,27 @@ import axios from 'axios'
 export const fetchPizzas = createAsyncThunk(
   'pizzas/fetchPizzas',
   async (params) => {
-    const { API_URL, categoryApi, sortApi, sortByApi, searchApi } = params
-    const { data } = await axios.get(
-      `${API_URL}&${categoryApi}&sortBy=${sortByApi}&order=${sortApi}${searchApi}`
-    )
+    const {
+      API_URL,
+      categoryApi,
+      sortApi,
+      sortByApi,
+      searchApi,
+      currentPage,
+      perPage,
+    } = params
+    const fecthParams = `&${categoryApi}&sortBy=${sortByApi}&order=${sortApi}${searchApi}&page=${currentPage}&limit=${perPage}`
+    const { data } = await axios.get(`${API_URL}${fecthParams}`)
     return data
   }
 )
 
 const initialState = {
   items: [],
+  totalCount: 8,
   status: 'loading',
+  currentPage: 1,
+  perPage: 4,
 }
 
 const itemsSlice = createSlice({
@@ -23,6 +33,9 @@ const itemsSlice = createSlice({
   reducers: {
     setItems(state, action) {
       state.items = action.payload
+    },
+    setCurrentPage(state, action) {
+      state.currentPage = action.payload
     },
   },
   extraReducers: {
@@ -41,6 +54,8 @@ const itemsSlice = createSlice({
   },
 })
 
-export const { setItems } = itemsSlice.actions
+export const selectItems = (state) => state.pizzas
+
+export const { setItems, setCurrentPage } = itemsSlice.actions
 
 export default itemsSlice.reducer

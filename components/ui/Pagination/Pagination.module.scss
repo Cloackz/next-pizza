@@ -5,18 +5,18 @@
   justify-content: center;
 }
 
-.PaginationList {
+.List {
   display: flex;
   align-items: center;
 }
 
-.PaginationItem {
+.Item {
   &:not(:last-child) {
     margin-right: 10px;
   }
 }
 
-.PaginationButton {
+.Button {
   cursor: pointer;
   background: transparent;
   color: $color-orange;
@@ -41,7 +41,7 @@
   }
 }
 
-.PaginationButtonActive {
+.ButtonActive {
   background: $color-orange;
   color: $color-white;
   border: 1px solid transparent;

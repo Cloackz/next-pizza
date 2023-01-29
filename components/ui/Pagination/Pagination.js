@@ -19,13 +19,13 @@ const Pagination = () => {
 
   return (
     <GridBlock className={styles.Pagination}>
-      <ul className={styles.PaginationList}>
+      <ul className={styles.List}>
         {pageNumbers.map((page, index) => (
-          <li className={classNames(styles.PaginationItem)} key={index}>
+          <li className={classNames(styles.Item)} key={index}>
             <button
               className={classNames(
-                styles.PaginationButton,
-                currentPage === page ? styles.PaginationButtonActive : null
+                styles.Button,
+                currentPage === page ? styles.ButtonActive : null
               )}
               onClick={() => dispatch(setCurrentPage(page))}
             >

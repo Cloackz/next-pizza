@@ -37,7 +37,12 @@ const CartItem = ({ id, title, img, price, types, sizes, count }) => {
       <div className={styles.ItemRight}>
         <div className={styles.Count}>
           <button
-            className={classNames(styles.CountButton, styles.CountButtonMinus)}
+            disabled={count === 1}
+            className={classNames(
+              styles.CountButton,
+              styles.CountButtonMinus,
+              count === 1 && styles.CountButtonDisabled
+            )}
             onClick={onClickMinus}
           ></button>
           <span className={styles.CountText}>{count}</span>

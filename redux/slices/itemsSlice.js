@@ -22,7 +22,7 @@ export const fetchPizzas = createAsyncThunk(
 const initialState = {
   items: [],
   totalCount: 8,
-  status: 'loading',
+  status: 'loading | success | error',
   currentPage: 1,
   perPage: 4,
 }

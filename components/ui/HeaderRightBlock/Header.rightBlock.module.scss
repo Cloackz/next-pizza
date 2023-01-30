@@ -15,6 +15,25 @@
   position: absolute;
   top: 50px;
   right: 30px;
+  transition: $transition-time $transition-ease;
+  border: 1px solid transparent;
+
+  &:hover,
+  &:focus {
+    color: $color-orange;
+    background: $color-white;
+    border: 1px solid $color-orange;
+
+    .ButtonPrice {
+      &::before {
+        background: $color-orange;
+      }
+    }
+
+    path {
+      stroke: $color-orange;
+    }
+  }
 
   @media (min-width: $media500) {
     position: static;
@@ -36,9 +55,9 @@
     display: block;
     width: 1px;
     height: 25px;
-    top: -5px;
+    top: -2px;
     right: 0;
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba($color: $color-white, $alpha: 0.5);
   }
 }
 
@@ -51,7 +70,7 @@
     padding-left: 14px;
   }
 
-  img {
+  svg {
     width: 14px;
     height: 14px;
     margin-right: 6px;

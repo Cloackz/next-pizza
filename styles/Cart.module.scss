@@ -56,9 +56,21 @@
 
 .Clean {
   cursor: pointer;
-  color: #b6b6b6;
-  img {
+  color: rgba($color: $color-black, $alpha: 0.4);
+  transition: $transition-time $transition-ease;
+
+  svg {
     margin-right: 10px;
+  }
+
+  &:hover,
+  &:focus {
+    color: rgba($color: $color-black, $alpha: 0.7);
+
+    path {
+      stroke: rgba($color: $color-black, $alpha: 0.4);
+      fill: rgba($color: $color-black, $alpha: 0.7);
+    }
   }
 }
 
@@ -110,13 +122,19 @@
 }
 
 .ButtonBack {
-  border: 1px solid #d3d3d3;
+  border: 1px solid $color-black;
   background: transparent;
-  color: #d3d3d3;
+  color: $color-black;
   margin-bottom: 20px;
 
   @media (min-width: 500px) {
     margin: 0;
+  }
+
+  &:hover,
+  &:focus {
+    border: 1px solid rgba($color: $color-black, $alpha: 0.5);
+    color: rgba($color: $color-black, $alpha: 0.5);
   }
 }
 

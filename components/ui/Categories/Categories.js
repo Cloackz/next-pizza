@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { setCategory } from '/redux/slices/filterSlice'
 
@@ -6,7 +6,7 @@ import classNames from 'classnames'
 
 import styles from './Categories.module.scss'
 
-const Categories = () => {
+const Categories = React.memo(() => {
   const categories = [
     'все',
     'Мясные',
@@ -19,9 +19,9 @@ const Categories = () => {
   const dispatch = useDispatch()
   const activeCategory = useSelector((state) => state.filter.categoryId)
 
-  const changeCategory = (index) => {
+  const changeCategory = useCallback((index) => {
     dispatch(setCategory(index))
-  }
+  }, [])
 
   return (
     <div className={styles.Categories}>
@@ -41,6 +41,6 @@ const Categories = () => {
       </ul>
     </div>
   )
-}
+})
 
 export default Categories

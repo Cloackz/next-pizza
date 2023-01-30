@@ -1,27 +1,27 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { addItem, minusItem, removeItem } from '/redux/slices/cartSlice'
-import classNames from 'classnames'
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem, minusItem, removeItem } from '/redux/slices/cartSlice';
+import classNames from 'classnames';
 
-import styles from './CartItem.module.scss'
+import styles from './CartItem.module.scss';
 
 const CartItem = ({ id, title, img, price, types, sizes, count }) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const onClickPlus = () => {
     dispatch(
       addItem({
         id,
       })
-    )
-  }
+    );
+  };
 
   const onClickMinus = () => {
-    dispatch(minusItem(id))
-  }
+    dispatch(minusItem(id));
+  };
 
   const onClickRemove = () => {
-    dispatch(removeItem(id))
-  }
+    dispatch(removeItem(id));
+  };
 
   return (
     <li className={styles.Item}>
@@ -58,7 +58,7 @@ const CartItem = ({ id, title, img, price, types, sizes, count }) => {
         ></button>
       </div>
     </li>
-  )
-}
+  );
+};
 
-export default CartItem
+export default CartItem;

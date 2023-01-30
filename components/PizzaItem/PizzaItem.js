@@ -1,25 +1,25 @@
-import { React, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { addItem } from '/redux/slices/cartSlice'
+import { React, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem } from '/redux/slices/cartSlice';
 
-import styles from './PizzaItem.module.scss'
-import Button from '/components/ui/Button/Button'
+import styles from './PizzaItem.module.scss';
+import Button from '/components/ui/Button/Button';
 
-import classNames from 'classnames'
+import classNames from 'classnames';
 
-const typeName = ['тонкое', 'традиционное']
-const sizePizza = [26, 30, 40]
+const typeName = ['тонкое', 'традиционное'];
+const sizePizza = [26, 30, 40];
 
 const PizzaItem = ({ id, title, img, price, types, sizes }) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const cartItem = useSelector((state) =>
     state.cart.items.find((obj) => obj.id === id)
-  )
+  );
 
-  const [activeSize, setActiveSize] = useState(0)
-  const [activeType, setActiveType] = useState(0)
+  const [activeSize, setActiveSize] = useState(0);
+  const [activeType, setActiveType] = useState(0);
 
-  const addedCount = cartItem ? cartItem.count : 0
+  const addedCount = cartItem ? cartItem.count : 0;
 
   const onClickAddItem = () => {
     const item = {
@@ -29,10 +29,10 @@ const PizzaItem = ({ id, title, img, price, types, sizes }) => {
       img,
       types: typeName[activeType],
       sizes: sizePizza[activeSize],
-    }
+    };
 
-    dispatch(addItem(item))
-  }
+    dispatch(addItem(item));
+  };
 
   return (
     <li className={styles.Item}>
@@ -90,7 +90,7 @@ const PizzaItem = ({ id, title, img, price, types, sizes }) => {
         </Button>
       </div>
     </li>
-  )
-}
+  );
+};
 
-export default PizzaItem
+export default PizzaItem;

@@ -1,8 +1,8 @@
-import GridBlock from '/components/ui/GridBlock/GridBlock'
-import Link from 'next/link'
+import GridBlock from '/components/ui/GridBlock/GridBlock';
+import Link from 'next/link';
 
-import styles from './Header.module.scss'
-import classNames from 'classnames'
+import styles from './Header.module.scss';
+import classNames from 'classnames';
 
 const Header = ({ children, className }) => {
   return (
@@ -18,7 +18,7 @@ const Header = ({ children, className }) => {
       </div>
       {children}
     </GridBlock>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

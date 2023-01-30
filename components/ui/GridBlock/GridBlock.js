@@ -1,7 +1,7 @@
-import React from 'react'
-import classNames from 'classnames'
+import React from 'react';
+import classNames from 'classnames';
 
-import styles from './GridBlock.module.scss'
+import styles from './GridBlock.module.scss';
 
 const GridBlock = ({
   children = null,
@@ -12,6 +12,6 @@ const GridBlock = ({
   <Tag className={classNames(styles.Container, className)} id={id}>
     {children}
   </Tag>
-)
+);
 
-export default GridBlock
+export default GridBlock;

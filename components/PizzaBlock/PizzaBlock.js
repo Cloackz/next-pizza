@@ -1,14 +1,14 @@
-import { useSelector } from 'react-redux'
-import { selectItems } from '/redux/slices/itemsSlice'
+import { useSelector } from 'react-redux';
+import { selectItems } from '/redux/slices/itemsSlice';
 
-import GridBlock from '/components/ui/GridBlock/GridBlock'
-import PizzaItem from '/components/PizzaItem/PizzaItem'
-import Skeleton from '/components/ui/PizzaSkeleton/PizzaSkeleton'
+import GridBlock from '/components/ui/GridBlock/GridBlock';
+import PizzaItem from '/components/PizzaItem/PizzaItem';
+import Skeleton from '/components/ui/PizzaSkeleton/PizzaSkeleton';
 
-import styles from './PizzaBlock.module.scss'
+import styles from './PizzaBlock.module.scss';
 
 const PizzaBlock = ({ items, status }) => {
-  const { perPage } = useSelector(selectItems)
+  const { perPage } = useSelector(selectItems);
   return (
     <GridBlock>
       <h1 className={styles.Title}>Все пиццы</h1>
@@ -20,7 +20,7 @@ const PizzaBlock = ({ items, status }) => {
           : items.map((item) => <PizzaItem {...item} key={item.id} />)}
       </ul>
     </GridBlock>
-  )
-}
+  );
+};
 
-export default PizzaBlock
+export default PizzaBlock;

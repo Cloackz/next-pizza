@@ -1,18 +1,18 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { setSort } from '/redux/slices/filterSlice'
+import React, { useState, useEffect, useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setSort } from '/redux/slices/filterSlice';
 
-import classNames from 'classnames'
+import classNames from 'classnames';
 
-import styles from './Sort.module.scss'
+import styles from './Sort.module.scss';
 
 const Sort = () => {
-  const dispatch = useDispatch()
-  const sortActive = useSelector((state) => state.filter.sortId)
+  const dispatch = useDispatch();
+  const sortActive = useSelector((state) => state.filter.sortId);
 
-  const sortRef = useRef()
-  const [openPopup, setOpenPopup] = useState(false)
-  const [activeArrow, setActiveArrow] = useState(false)
+  const sortRef = useRef();
+  const [openPopup, setOpenPopup] = useState(false);
+  const [activeArrow, setActiveArrow] = useState(false);
 
   const sortList = [
     { name: 'популярности (воз)', sortProp: 'rating' },
@@ -21,33 +21,33 @@ const Sort = () => {
     { name: 'цене (уб)', sortProp: '-price' },
     { name: 'алфавиту (воз)', sortProp: 'title' },
     { name: 'алфавиту (уб)', sortProp: '-title' },
-  ]
+  ];
 
   const onClickButton = () => {
-    setOpenPopup(!openPopup)
-    setActiveArrow(!activeArrow)
-  }
+    setOpenPopup(!openPopup);
+    setActiveArrow(!activeArrow);
+  };
 
   const onClickList = (objSort) => {
-    dispatch(setSort(objSort))
-    setOpenPopup(!openPopup)
-  }
+    dispatch(setSort(objSort));
+    setOpenPopup(!openPopup);
+  };
 
   // закрытие попапа по клику вне его видимости
   useEffect(() => {
     const HandleClickOutside = (e) => {
-      const path = e.composedPath()
+      const path = e.composedPath();
 
       if (!path.includes(sortRef.current)) {
-        setOpenPopup(false)
+        setOpenPopup(false);
       }
-    }
-    document.body.addEventListener('click', HandleClickOutside)
+    };
+    document.body.addEventListener('click', HandleClickOutside);
 
     return () => {
-      document.body.removeEventListener('click', HandleClickOutside)
-    }
-  }, [])
+      document.body.removeEventListener('click', HandleClickOutside);
+    };
+  }, []);
 
   return (
     <div ref={sortRef} className={styles.Sort}>
@@ -97,7 +97,7 @@ const Sort = () => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Sort
+export default Sort;

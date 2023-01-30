@@ -1,23 +1,23 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { clearItems, selectCart } from '/redux/slices/cartSlice'
-import Link from 'next/link'
+import { useDispatch, useSelector } from 'react-redux';
+import { clearItems, selectCart } from '/redux/slices/cartSlice';
+import Link from 'next/link';
 
-import CartItem from '/components/ui/CartItem/CartItem'
-import Layout from '/components/Layout/Layout'
-import GridBlock from '/components/ui/GridBlock/GridBlock'
-import Button from '/components/ui/Button/Button'
+import CartItem from '/components/ui/CartItem/CartItem';
+import Layout from '/components/Layout/Layout';
+import GridBlock from '/components/ui/GridBlock/GridBlock';
+import Button from '/components/ui/Button/Button';
 
-import styles from '/styles/Cart.module.scss'
+import styles from '/styles/Cart.module.scss';
 
 const cart = () => {
-  const dispatch = useDispatch()
-  const obj = useSelector((state) => state.cart.items)
-  const { items, totalPrice } = useSelector(selectCart)
-  const totalCount = items.reduce((sum, item) => sum + item.count, 0)
+  const dispatch = useDispatch();
+  const obj = useSelector((state) => state.cart.items);
+  const { items, totalPrice } = useSelector(selectCart);
+  const totalCount = items.reduce((sum, item) => sum + item.count, 0);
 
   const onClickClearCart = () => {
-    dispatch(clearItems())
-  }
+    dispatch(clearItems());
+  };
   return (
     <Layout>
       <GridBlock>
@@ -118,7 +118,7 @@ const cart = () => {
         )}
       </GridBlock>
     </Layout>
-  )
-}
+  );
+};
 
-export default cart
+export default cart;

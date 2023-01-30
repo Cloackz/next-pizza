@@ -1,6 +1,6 @@
-import classNames from 'classnames'
-import Link from 'next/link'
-import styles from './Button.module.scss'
+import classNames from 'classnames';
+import Link from 'next/link';
+import styles from './Button.module.scss';
 
 const Button = ({ children, className, onClick, href = '' }) => {
   return href ? (
@@ -15,7 +15,7 @@ const Button = ({ children, className, onClick, href = '' }) => {
     <button onClick={onClick} className={classNames(styles.Button, className)}>
       {children}
     </button>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;

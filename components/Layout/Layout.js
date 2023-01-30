@@ -1,25 +1,25 @@
-import { useRouter } from 'next/router'
-import Head from 'next/head'
+import { useRouter } from 'next/router';
+import Head from 'next/head';
 
-import RightBlock from '/components/ui/HeaderRightBlock/HeaderRightBlock'
-import Header from '/components/Header/Header'
-import Container from '/components/ui/Container/Container'
+import RightBlock from '/components/ui/HeaderRightBlock/HeaderRightBlock';
+import Header from '/components/Header/Header';
+import Container from '/components/ui/Container/Container';
 
-import styles from '/styles/Main.module.scss'
+import styles from '/styles/Main.module.scss';
 
 const Layout = ({ children }) => {
-  const router = useRouter()
+  const router = useRouter();
 
-  let title
+  let title;
 
   switch (router.pathname) {
     case '/cart':
-      title = 'Корзина'
-      break
+      title = 'Корзина';
+      break;
 
     default:
-      title = 'Главная'
-      break
+      title = 'Главная';
+      break;
   }
 
   return (
@@ -34,7 +34,7 @@ const Layout = ({ children }) => {
         <main>{children}</main>
       </Container>
     </>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

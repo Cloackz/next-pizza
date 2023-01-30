@@ -1,37 +1,37 @@
-import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { fetchPizzas, selectItems } from '/redux/slices/itemsSlice'
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchPizzas, selectItems } from '/redux/slices/itemsSlice';
 
-import GridBlock from '/components/ui/GridBlock/GridBlock'
-import Layout from '/components/Layout/Layout'
-import Categories from '/components/ui/Categories/Categories'
-import Sort from '/components/ui/Sort/Sort'
-import PizzaBlock from '/components/PizzaBlock/PizzaBlock'
-import Pagination from '/components/ui/Pagination/Pagination'
+import GridBlock from '/components/ui/GridBlock/GridBlock';
+import Layout from '/components/Layout/Layout';
+import Categories from '/components/ui/Categories/Categories';
+import Sort from '/components/ui/Sort/Sort';
+import PizzaBlock from '/components/PizzaBlock/PizzaBlock';
+import Pagination from '/components/ui/Pagination/Pagination';
 
-import styles from '/styles/Main.module.scss'
+import styles from '/styles/Main.module.scss';
 
 const index = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const { categoryId, sortId, searchValue } = useSelector(
     (state) => state.filter
-  )
+  );
 
   const { items, totalCount, status, currentPage, perPage } =
-    useSelector(selectItems)
+    useSelector(selectItems);
 
-  const pageNumbers = []
+  const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(totalCount / perPage); i++) {
-    pageNumbers.push(i)
+    pageNumbers.push(i);
   }
 
   const getPizzas = async () => {
-    const API_URL = `https://63998b6316b0fdad7740477b.mockapi.io/items?`
-    const categoryApi = categoryId > 0 ? `category=${categoryId}` : ''
-    const sortApi = sortId.sortProp.includes('-') ? 'desc' : 'asc'
-    const sortByApi = sortId.sortProp.replace('-', '')
-    const searchApi = searchValue ? `&search=${searchValue}` : ''
+    const API_URL = `https://63998b6316b0fdad7740477b.mockapi.io/items?`;
+    const categoryApi = categoryId > 0 ? `category=${categoryId}` : '';
+    const sortApi = sortId.sortProp.includes('-') ? 'desc' : 'asc';
+    const sortByApi = sortId.sortProp.replace('-', '');
+    const searchApi = searchValue ? `&search=${searchValue}` : '';
 
     dispatch(
       fetchPizzas({
@@ -43,7 +43,7 @@ const index = () => {
         currentPage,
         perPage,
       })
-    )
+    );
 
     // await axios
     //   .get(
@@ -57,11 +57,11 @@ const index = () => {
     //     console.log(err)
     //     setIsLoading(false)
     //   })
-  }
+  };
 
   useEffect(() => {
-    getPizzas()
-  }, [categoryId, sortId.sortProp, searchValue, currentPage])
+    getPizzas();
+  }, [categoryId, sortId.sortProp, searchValue, currentPage]);
 
   return (
     <Layout page="main">
@@ -79,7 +79,7 @@ const index = () => {
       )}
       {totalCount > perPage ? <Pagination /> : null}
     </Layout>
-  )
-}
+  );
+};
 
-export default index
+export default index;

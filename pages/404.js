@@ -1,8 +1,8 @@
-import Layout from '/components/Layout/Layout'
-import GridBlock from '/components/ui/GridBlock/GridBlock'
-import Button from '/components/ui/Button/Button'
+import Layout from '/components/Layout/Layout';
+import GridBlock from '/components/ui/GridBlock/GridBlock';
+import Button from '/components/ui/Button/Button';
 
-import styles from '/styles/Error.module.scss'
+import styles from '/styles/Error.module.scss';
 
 const error = () => {
   return (
@@ -12,7 +12,7 @@ const error = () => {
         <Button href={'/'}>Вернуться на главную</Button>
       </GridBlock>
     </Layout>
-  )
-}
+  );
+};
 
-export default error
+export default error;
